@@ -81,29 +81,35 @@
     </div>
     <!-- Menulis kode JS di dalam tag script -->
     <script>
-      // Membuat array berisi teks penyemangat
-      var quotes = [“heyy Cantikkk!”, “Kamu Pasti biasa!”, “Yubisa yu semangat!”, “kamu tuh pinter tau!”, “Bayangin aja lapraknya jadi gampang!”, “Kamu cantik banget deh!”, “Aku sayang kamu!”, “Kamu adalah alasan aku tersenyum setiap hari.”, “Kamu adalah inspirasi aku untuk berprestasi.”, “Kamu adalah orang yang paling aku sayangi di dunia ini.”, “Kamu adalah teman terbaik dan pasangan hidupku.”, “Kamu adalah anugerah terindah yang pernah aku terima.”];
+  // Membuat array berisi teks penyemangat
+  var quotes = ["heyy Cantikkk!", "Kamu Pasti biasa!", "Yubisa yu semangat!", "kamu tuh pinter tau!", "Bayangin aja lapraknya jadi gampang!", "Kamu cantik banget deh!", "Aku sayang kamu!", "Kamu adalah alasan aku tersenyum setiap hari.", "Kamu adalah inspirasi aku untuk berprestasi.", "Kamu adalah orang yang paling aku sayangi di dunia ini.", "Kamu adalah teman terbaik dan pasangan hidupku.", "Kamu adalah anugerah terindah yang pernah aku terima."];
 
-      // Membuat fungsi untuk mengambil teks penyemangat secara acak dari array
-      function getRandomQuote() {
-        // Menghasilkan angka acak antara 0 dan panjang array - 1
-        var randomIndex = Math.floor(Math.random() * quotes.length);
-        // Mengembalikan elemen array sesuai dengan indeks acak
-        return quotes[randomIndex];
-      }
+  // Membuat variabel untuk menyimpan indeks kutipan
+  var quoteIndex = 0;
 
-      // Membuat fungsi untuk menampilkan teks penyemangat di halaman web
-      function displayQuote() {
-        // Mendapatkan elemen p dengan id quote
-        var quoteElement = document.getElementById("quote");
-        // Memanggil fungsi getRandomQuote dan menetapkan hasilnya ke innerHTML dari quoteElement
-        quoteElement.innerHTML = getRandomQuote();
-      }
+  // Membuat fungsi untuk mengambil teks penyemangat secara berurutan dari array
+  function getQuote() {
+    // Mengembalikan elemen array sesuai dengan indeks
+    return quotes[quoteIndex];
+  }
 
-      // Mendapatkan elemen button dengan id generate
-      var generateButton = document.getElementById("generate");
-      // Menambahkan event listener untuk menjalankan fungsi displayQuote ketika button diklik
-      generateButton.addEventListener("click", displayQuote);
-    </script>
+  // Membuat fungsi untuk menampilkan teks penyemangat di halaman web
+  function displayQuote() {
+    // Mendapatkan elemen p dengan id quote
+    var quoteElement = document.getElementById("quote");
+    // Memanggil fungsi getQuote dan menetapkan hasilnya ke innerHTML dari quoteElement
+    quoteElement.innerHTML = getQuote();
+    // Menambahkan indeks kutipan dengan 1
+    quoteIndex++;
+    // Menggunakan operator modulo untuk membuat indeks tidak melebihi panjang array
+    quoteIndex = quoteIndex % quotes.length;
+  }
+
+  // Mendapatkan elemen button dengan id generate
+  var generateButton = document.getElementById("generate");
+  // Menambahkan event listener untuk menjalankan fungsi displayQuote ketika button diklik
+  generateButton.addEventListener("click", displayQuote);
+</script>
+
   </body>
 </html>
