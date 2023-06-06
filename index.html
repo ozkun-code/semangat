@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Halooooooooo Intan</title>
+    <!-- Menulis kode CSS di dalam tag style -->
+    <style>
+      body {
+        position: relative !important;
+        height: 100vh;
+      }
+
+      body:before {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        background-image: url(https://divi.space/wp-content/uploads/2019/02/hearts.png);
+        animation: falling-hearts 8s linear infinite;
+      }
+      @keyframes falling-hearts {
+        0% {
+          background-position: 0% 30%;
+        }
+      }
+
+      @-moz-keyframes falling-hearts {
+        0% {
+          background-position: 0% 30%;
+        }
+      }
+
+      @-webkit-keyframes falling-hearts {
+        0% {
+          background-position: 0% 30%;
+        }
+      }
+      #container {
+        width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      h1 {
+        font-family: Arial, sans-serif;
+        font-size: 36px;
+        color: #333;
+      }
+
+      p {
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        color: #555;
+      }
+
+      button {
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        padding: 10px 20px;
+        background-color: #0099ff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Haluuu Calon Istrikuu !!!!</h1>
+      <img src="1.jpg" />
+
+      <p id="quote"></p>
+      <button id="generate">Klik</button>
+    </div>
+    <!-- Menulis kode JS di dalam tag script -->
+    <script>
+      // Membuat array berisi teks penyemangat
+      var quotes = ["heyy Cantikkk!", "Kamu Pasti biasa!", "Yubisa yu semangat!", "kamu tuh pinter tau!", "Bayangin aja lapraknya jadi gampang!"];
+
+      // Membuat fungsi untuk mengambil teks penyemangat secara acak dari array
+      function getRandomQuote() {
+        // Menghasilkan angka acak antara 0 dan panjang array - 1
+        var randomIndex = Math.floor(Math.random() * quotes.length);
+        // Mengembalikan elemen array sesuai dengan indeks acak
+        return quotes[randomIndex];
+      }
+
+      // Membuat fungsi untuk menampilkan teks penyemangat di halaman web
+      function displayQuote() {
+        // Mendapatkan elemen p dengan id quote
+        var quoteElement = document.getElementById("quote");
+        // Memanggil fungsi getRandomQuote dan menetapkan hasilnya ke innerHTML dari quoteElement
+        quoteElement.innerHTML = getRandomQuote();
+      }
+
+      // Mendapatkan elemen button dengan id generate
+      var generateButton = document.getElementById("generate");
+      // Menambahkan event listener untuk menjalankan fungsi displayQuote ketika button diklik
+      generateButton.addEventListener("click", displayQuote);
+    </script>
+  </body>
+</html>
